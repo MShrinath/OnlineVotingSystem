@@ -9,10 +9,3 @@
 * [2200032708-Shrinath](https://github.com/MShrinath)
 * [2200032723-Sahitya](https://github.com/vadlasahitya)
 * [2200032949-Lohith](https://github.com/lohithkumar-j)
-
-git init
-git add .
-git commit -m "Base project"
-git branch -M main
-git remote add origin https://github.com/MShrinath/SDP14_OVS.git
-git push -u origin main
