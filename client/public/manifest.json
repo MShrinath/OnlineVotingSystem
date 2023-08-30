@@ -1,0 +1,15 @@
+{
+  "short_name": "SDP14_32708",
+  "name": "SDP14 Project 2023",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "202x202"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
