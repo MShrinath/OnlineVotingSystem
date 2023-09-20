@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 
+const db = require('./db');
+
 const app = express();
 app.use(express.json());
 
@@ -12,9 +14,6 @@ app.use(cors({
     credentials: true,
 }));
 // app.use(cors());
-
-
-
 
 app.listen(PORT, () => {
     console.log('Example app listening on port', PORT);
