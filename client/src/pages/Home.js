@@ -1,8 +1,10 @@
 import React from "react";
+import HOME from "../images/VOTE.jpg"
 function Home() {
     return (
         <div>
-            <center><h1>Home</h1></center>
+            <center>
+            <img src={HOME} style={{width:'97vw',height:"100vh",objectFit:"cover"}} /></center>
         </div>
     );
 }

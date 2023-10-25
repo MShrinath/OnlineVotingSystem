@@ -1,37 +1,59 @@
 import { useState } from "react";
 import "../css/Register.css"
+import axios from "axios";
 
 function Register() {
     const [first_name, setFirst_name] = useState("");
     const [last_name, setLast_name] = useState("");
     const [dob, setDob] = useState(Date);
+    const [gender, setGender] = useState("");
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    async function Register_User(event) {
-        event.preventDefault();
+    // async function Register_User(event) {
+    //     event.preventDefault();
 
-        function over18(birthday) {
-            var optimizedBirthday = birthday.replace(/-/g, "/");
-            var myBirthday = new Date(optimizedBirthday);
-            var currentDate = new Date().toJSON().slice(0, 10) + ' 01:00:00';
-            var myAge = ((Date.now(currentDate) - myBirthday) / (31557600000));
-            if (myAge < 18)
-                return false;
-            else
-                return true;
+    //     function over18(birthday) {
+    //         var optimizedBirthday = birthday.replace(/-/g, "/");
+    //         var myBirthday = new Date(optimizedBirthday);
+    //         var currentDate = new Date().toJSON().slice(0, 10) + ' 01:00:00';
+    //         var myAge = ((Date.now(currentDate) - myBirthday) / (31557600000));
+    //         if (myAge < 18)
+    //             return false;
+    //         else
+    //             return true;
 
+    //     }
+    //     if (over18(dob) === false) 
+    //         alert("You are under age")
+    //     console.log(gender)
+    // }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post("http://localhost:5000/api/user/register", {
+                first_name: first_name,
+                last_name: last_name,
+                dob: dob,
+                gender: gender,
+                email: email,
+                username: username,
+                password: password,
+                vote:-1
+            })
+        } catch (error) {
+            console.log("Error in Sending Data ", error)
         }
-        if(over18(dob) === false){
-            alert("You are under age")
-        }
-    }
+        alert("Voter registered successfully!")
+    };
+
 
     return (
         <div>
             <h1>Register</h1>
-            <form onSubmit={Register_User}>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={first_name}
@@ -45,11 +67,16 @@ function Register() {
                     placeholder="Last Name"
                 />
                 <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
+                    type="date"
+                    value={dob}
+                    onChange={(e) => setDob(e.target.value)}
+                    placeholder="Date of Birth"
                 />
+                <select value={gender} onChange={(e) => setGender(e.target.value)}>
+                    <option defaultValue="" hidden>Select an Option</option> 
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
                 <input
                     type="email"
                     value={email}
@@ -57,10 +84,10 @@ function Register() {
                     placeholder="Email"
                 />
                 <input
-                    type="date"
-                    value={dob}
-                    onChange={(e) => setDob(e.target.value)}
-                    placeholder="Date of Birth"
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Username"
                 />
                 <input
                     type="password"

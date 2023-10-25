@@ -1,13 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config()
+const cookieParser = require('cookie-parser');
 
-const db = require('./db');
+const userRouter = require('./routers/usersroute')
 
-const app = express();
-app.use(express.json());
 
-const PORT = 2000;
-
+const port = process.env.PORT
+const app = express()
+app.use(cookieParser());
+app.use(express.json())
 //only for development
 app.use(cors({
     origin: 'http://localhost:3000',
@@ -15,6 +17,15 @@ app.use(cors({
 }));
 // app.use(cors());
 
-app.listen(PORT, () => {
-    console.log('Example app listening on port', PORT);
-});
+const db = require("./db")
+
+app.get("/", (req, res) => {
+	res.send("Hello World!")
+})
+
+app.use('/api/user',userRouter)
+
+
+app.listen(port,()=>{
+    console.log("Server is running on port",port);
+})
