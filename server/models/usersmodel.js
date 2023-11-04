@@ -9,7 +9,7 @@ const User = new mongoose.Schema({
     username: { type: String, required: true , unique: true},
     password: { type: String, required: true },
     vote: { type: Number, required: true },
-    
+    admin: { type: Boolean, default: false },
 },
     {collection: 'Users'}
 );

@@ -38,25 +38,25 @@ function Vote() {
     ];
 
     async function onSubmitVote(e) {
-        // e.preventDefault();
-        // if(document.getElementById("Voter0").checked = true) setVote(0);
-        // if(document.getElementById("Voter1").checked = true) setVote(1);
-        // if(document.getElementById("Voter2").checked = true) setVote(2);
-        // if(document.getElementById("Voter3").checked = true) setVote(3);
-        // try {
-        //     await axios.put(`http://localhost:5000/api/user/${userData._id}`,
-        //         {
-        //             vote:vote
-        //         });
-        // }
-        // catch (err) {
-        //     console.error("Error updating item;", err)
-        // }
+        e.preventDefault();
+        if(document.getElementById("Voter0").checked === true) {setVote(0)};
+        if(document.getElementById("Voter1").checked === true) {setVote(1)};
+        if(document.getElementById("Voter2").checked === true) {setVote(2)};
+        if(document.getElementById("Voter3").checked === true) {setVote(3)};
+        try {
+            await axios.put(`http://localhost:5000/api/user/${userData._id}`,
+                {
+                    vote:vote
+                });
+        }
+        catch (err) {
+            console.error("Error updating item;", err)
+        }
         document.getElementById("Voter0").checked = false
         document.getElementById("Voter1").checked = false
         document.getElementById("Voter2").checked = false
         document.getElementById("Voter3").checked = false
-        alert("Votedx")
+        alert("Voted Thank you")
     }
 
     useEffect(() => {

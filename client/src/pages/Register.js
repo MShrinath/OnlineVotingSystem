@@ -41,7 +41,7 @@ function Register() {
                 email: email,
                 username: username,
                 password: password,
-                vote:-1
+                vote:-1,
             })
         } catch (error) {
             console.log("Error in Sending Data ", error)
@@ -51,7 +51,7 @@ function Register() {
 
 
     return (
-        <div>
+        <div className="register-container">
             <h1>Register</h1>
             <form onSubmit={handleSubmit}>
                 <input
@@ -76,6 +76,7 @@ function Register() {
                     <option defaultValue="" hidden>Select an Option</option> 
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                 </select>
                 <input
                     type="email"
