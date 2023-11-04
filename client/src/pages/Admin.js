@@ -53,16 +53,15 @@ function Admin() {
                                     <h1>First Name: {all.first_name}</h1>
                                     <h1>Last Name: {all.last_name}</h1>
                                     <h1>Date of Birth: {all.dob}</h1>
+                                    <h1>Aadhaar Number: {all.aadhaar_number}</h1>
                                     <h1>Gender: {all.gender}</h1>
                                     <h1>Email: {all.email}</h1>
                                     <h1>Username: {all.username}</h1>
                                     <h1>Vote: {all.vote}</h1>
-                                    <h1>Admin: {all.admin}</h1>
                                 </li>
                             ))}
                         </ul>
                     </div>
-
                 ) : (
                     <h1>Admin Access Required</h1>
                 )}
@@ -70,13 +69,6 @@ function Admin() {
         </div>
     );
 
-
-    return (
-        <div className="ok">
-            <h1>{isAdmin}</h1>
-
-        </div>
-    );
 }
 
 export default Admin;

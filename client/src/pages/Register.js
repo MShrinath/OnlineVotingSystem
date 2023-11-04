@@ -6,6 +6,7 @@ function Register() {
     const [first_name, setFirst_name] = useState("");
     const [last_name, setLast_name] = useState("");
     const [dob, setDob] = useState(Date);
+    const [aadhaar_number, setAadhaar_number] = useState(null);
     const [gender, setGender] = useState("");
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
@@ -37,6 +38,7 @@ function Register() {
                 first_name: first_name,
                 last_name: last_name,
                 dob: dob,
+                aadhaar_number:aadhaar_number,
                 gender: gender,
                 email: email,
                 username: username,
@@ -44,11 +46,10 @@ function Register() {
                 vote:-1,
             })
         } catch (error) {
-            console.log("Error in Sending Data ", error)
+            console.log("Error in Sending Data", error)
         }
         alert("Voter registered successfully!")
     };
-
 
     return (
         <div className="register-container">
@@ -71,6 +72,12 @@ function Register() {
                     value={dob}
                     onChange={(e) => setDob(e.target.value)}
                     placeholder="Date of Birth"
+                />
+                <input
+                    type="text"
+                    value={aadhaar_number}
+                    onChange={(e) => setAadhaar_number(e.target.value)}
+                    placeholder="Aadhaar Number"
                 />
                 <select value={gender} onChange={(e) => setGender(e.target.value)}>
                     <option defaultValue="" hidden>Select an Option</option> 
