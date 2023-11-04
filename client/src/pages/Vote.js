@@ -52,11 +52,11 @@ function Vote() {
         catch (err) {
             console.error("Error updating item;", err)
         }
-        document.getElementById("Voter0").checked = false
-        document.getElementById("Voter1").checked = false
-        document.getElementById("Voter2").checked = false
-        document.getElementById("Voter3").checked = false
-        alert("Voted Thank you")
+        // document.getElementById("Voter0").checked = false
+        // document.getElementById("Voter1").checked = false
+        // document.getElementById("Voter2").checked = false
+        // document.getElementById("Voter3").checked = false
+        // alert("Voted Thank you")
     }
 
     useEffect(() => {
