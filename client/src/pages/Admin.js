@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
 import cookie from 'cookie';
 import axios from "axios";
+import "../css/Login.css"
 
 function Admin() {
     const [allDetails, setAllDetails] = useState([]);
@@ -45,23 +46,23 @@ function Admin() {
         <div>
             <center>
                 {isAdmin ? (
-                    <div>
+                    <div className="container">
                         <ul>
                             {allDetails.map((all) => (
                                 <li key={all._id}>
-                                    <h1>{all.first_name}</h1>
-                                    <h1>{all.last_name}</h1>
-                                    <h1>{all.dob}</h1>
-                                    <h1>{all.gender}</h1>
-                                    <h1>{all.email}</h1>
-                                    <h1>{all.username}</h1>
-                                    <h1>{all.vote}</h1>
-                                    <h1>{all.admin}</h1>
+                                    <h1>First Name: {all.first_name}</h1>
+                                    <h1>Last Name: {all.last_name}</h1>
+                                    <h1>Date of Birth: {all.dob}</h1>
+                                    <h1>Gender: {all.gender}</h1>
+                                    <h1>Email: {all.email}</h1>
+                                    <h1>Username: {all.username}</h1>
+                                    <h1>Vote: {all.vote}</h1>
+                                    <h1>Admin: {all.admin}</h1>
                                 </li>
                             ))}
                         </ul>
-
                     </div>
+
                 ) : (
                     <h1>Admin Access Required</h1>
                 )}
