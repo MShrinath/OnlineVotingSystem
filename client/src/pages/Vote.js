@@ -22,18 +22,18 @@ function Vote() {
         },
         {
             PartySymbol: P1,
-            Contender: "Red",
-            PartyName: "Party1",
+            Contender: "PAWAN KALYAN",
+            PartyName: "JANASENA",
         },
         {
             PartySymbol: P2,
-            Contender: "Yellow",
-            PartyName: "Party2"
+            Contender: "CHANDRABABU NAIDU",
+            PartyName: "TDP"
         },
         {
             PartySymbol: P3,
-            Contender: "Green",
-            PartyName: "Party3"
+            Contender: "JAGAN MOHAN REDDY",
+            PartyName: "YCP"
         }
     ];
 

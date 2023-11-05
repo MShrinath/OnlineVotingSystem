@@ -1,13 +1,26 @@
 .login-container {
     max-width: 300px;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+    padding: 30px;
+    border: 2px solid #ccc;
+    font-family: 'Times New Roman', Times, serif;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #e0f7fa; /* Light blue background color */
+    box-shadow: 0 0 10px rgba(100, 98, 88, 0.2);
+    background-color: #e25d10; /* Light blue background color */
 
 }
+body {
+    margin: auto;
+    padding: 30px;
+    background-image: url('https://img.freepik.com/free-vector/digital-technology-background-with-blue-orange-light-effect_1017-27423.jpg?size=626&ext=jpg&ga=GA1.1.2146182453.1699139549&semt=ais'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover; /* This property sets the background image to cover the entire container */
+    background-position: center; /* This property centers the background image */
+    background-attachment: fixed; /* This property makes the background image fixed while scrolling */
+  }
+  
+
+  
+  
 
 label {
     display: block;
@@ -25,4 +38,5 @@ select {
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
+    
 }

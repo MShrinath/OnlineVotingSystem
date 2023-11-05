@@ -7,6 +7,7 @@ function Register() {
     const [last_name, setLast_name] = useState("");
     const [dob, setDob] = useState(Date);
     const [aadhaar_number, setAadhaar_number] = useState(null);
+    const [voter_id, setVoter_id] = useState(null);
     const [gender, setGender] = useState("");
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
@@ -39,6 +40,7 @@ function Register() {
                 last_name: last_name,
                 dob: dob,
                 aadhaar_number:aadhaar_number,
+                voter_id:voter_id,
                 gender: gender,
                 email: email,
                 username: username,
@@ -78,6 +80,12 @@ function Register() {
                     value={aadhaar_number}
                     onChange={(e) => setAadhaar_number(e.target.value)}
                     placeholder="Aadhaar Number"
+                />
+                <input
+                    type="text"
+                    value={voter_id}
+                    onChange={(e) => setVoter_id(e.target.value)}
+                    placeholder="Voter Id"
                 />
                 <select value={gender} onChange={(e) => setGender(e.target.value)}>
                     <option defaultValue="" hidden>Select an Option</option> 

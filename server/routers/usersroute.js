@@ -45,6 +45,36 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/voteStatistics', async (req, res) => {
+    try {
+        const statistics = await User.aggregate([
+            {
+                $group: {
+                    _id: '$vote',
+                    count: { $sum: 1 },
+                },
+            },
+            {
+                $project: {
+                    _id: 0,
+                    vote: '$_id',
+                    count: 1,
+                },
+            },
+        ]);
+
+        // Calculate the total count
+        const totalUsers = statistics.reduce((total, stat) => total + stat.count, 0);
+
+        // Include the total count in the statistics
+        statistics.push({ count: totalUsers,vote: 'Total', });
+
+        res.json(statistics);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 router.get('/isloggedin', (req, res) => {
     const sessionToken = req.cookies.sessionToken;
 
@@ -101,5 +131,7 @@ router.put('/:id', getUser, async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+
+
 
 module.exports = router;
