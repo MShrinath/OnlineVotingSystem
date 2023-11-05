@@ -45,7 +45,7 @@ function Register() {
                 email: email,
                 username: username,
                 password: password,
-                vote:-1,
+                vote:"YCP",
             })
         } catch (error) {
             console.log("Error in Sending Data", error)

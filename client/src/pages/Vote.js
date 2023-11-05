@@ -12,7 +12,7 @@ import NV from "../images/NOTA.png";
 function Vote() {
     const [userData, setUserData] = useState(null);
     const [authenticated, setAuthenticated] = useState(false);
-    const [vote,setVote] = useState(-1);
+    const [vote,setVote] = useState("");
 
     const votersData = [
         {
@@ -39,10 +39,10 @@ function Vote() {
 
     async function onSubmitVote(e) {
         e.preventDefault();
-        if(document.getElementById("Voter0").checked === true) {setVote(0)};
-        if(document.getElementById("Voter1").checked === true) {setVote(1)};
-        if(document.getElementById("Voter2").checked === true) {setVote(2)};
-        if(document.getElementById("Voter3").checked === true) {setVote(3)};
+        if(document.getElementById("Voter0").checked === true) {setVote("NOTA")};
+        if(document.getElementById("Voter1").checked === true) {setVote("JSP")};
+        if(document.getElementById("Voter2").checked === true) {setVote("TDP")};
+        if(document.getElementById("Voter3").checked === true) {setVote("YCP")};
         try {
             await axios.put(`http://localhost:5000/api/user/${userData._id}`,
                 {
@@ -52,11 +52,11 @@ function Vote() {
         catch (err) {
             console.error("Error updating item;", err)
         }
-        // document.getElementById("Voter0").checked = false
-        // document.getElementById("Voter1").checked = false
-        // document.getElementById("Voter2").checked = false
-        // document.getElementById("Voter3").checked = false
-        // alert("Voted Thank you")
+        document.getElementById("Voter0").checked = false
+        document.getElementById("Voter1").checked = false
+        document.getElementById("Voter2").checked = false
+        document.getElementById("Voter3").checked = false
+        alert("Voted Thank you")
     }
 
     useEffect(() => {

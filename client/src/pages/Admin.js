@@ -41,28 +41,38 @@ function Admin() {
 
         const fetchVoteStatistics = async () => {
             try {
-              const response = await axios.get('http://localhost:5000/api/user/voteStatistics');
-              setVoteStatistics(response.data);
+                const response = await axios.get('http://localhost:5000/api/user/voteStatistics');
+                setVoteStatistics(response.data);
             } catch (error) {
-              console.log(error.message);
+                console.log(error.message);
             }
-          };
+        };
 
         fetchAllData();
         fetchVoteStatistics();
     }, [])
 
-    console.log(isAdmin);
+    const findSecondHighest = (data) => {
+        const sortedData = [...data].sort((a, b) => b.count - a.count);
+
+        if (sortedData.length >= 2) {
+            return sortedData[1].vote;
+        }
+
+        return "No second-highest vote available";
+    };
+
+    const secondHighestVote = findSecondHighest(voteStatistics);
 
     return (
         <div>
             {isAdmin ? (
                 <><div>
-                    <center><h1>Vote Statistics</h1></center> 
+                    <center><h1>Vote Statistics</h1></center>
                     <table>
                         <thead>
                             <tr>
-                                <th>Vote</th>
+                                <th>Party</th>
                                 <th>Count</th>
                             </tr>
                         </thead>
@@ -76,8 +86,19 @@ function Admin() {
                         </tbody>
                     </table>
                 </div>
-                <br/>
-                <div className="container">
+                    <br />
+                    <center>
+                    <div style={{ backgroundColor: 'lightblue', padding: '10px' }}>
+                            <thread>
+                                <tr>
+                                    <th>Winner</th>
+                                    <th>{secondHighestVote}</th>
+                                </tr>
+                            </thread>
+                        </div>
+                    </center>
+                    <br />
+                    <div className="container">
                         <table>
                             <thead>
                                 <tr>
