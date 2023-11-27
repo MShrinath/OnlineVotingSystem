@@ -22,27 +22,27 @@ function Vote() {
         },
         {
             PartySymbol: P1,
-            Contender: "PAWAN KALYAN",
-            PartyName: "JANASENA",
+            Contender: "RED",
+            PartyName: "RED",
         },
         {
             PartySymbol: P2,
-            Contender: "CHANDRABABU NAIDU",
-            PartyName: "TDP"
+            Contender: "YELLOW",
+            PartyName: "YELLOW"
         },
         {
             PartySymbol: P3,
-            Contender: "JAGAN MOHAN REDDY",
-            PartyName: "YCP"
+            Contender: "GREEN",
+            PartyName: "GREEN"
         }
     ];
 
     async function onSubmitVote(e) {
         e.preventDefault();
         if(document.getElementById("Voter0").checked === true) {setVote("NOTA")};
-        if(document.getElementById("Voter1").checked === true) {setVote("JSP")};
-        if(document.getElementById("Voter2").checked === true) {setVote("TDP")};
-        if(document.getElementById("Voter3").checked === true) {setVote("YCP")};
+        if(document.getElementById("Voter1").checked === true) {setVote("RED")};
+        if(document.getElementById("Voter2").checked === true) {setVote("YELLOW")};
+        if(document.getElementById("Voter3").checked === true) {setVote("GREEN")};
         try {
             await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/user/${userData._id}`,
                 {

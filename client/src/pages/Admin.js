@@ -32,7 +32,7 @@ function Admin() {
 
         const fetchAllData = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user/`);
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user`);
                 setAllDetails(response.data)
             } catch (error) {
                 console.log(error.message);
