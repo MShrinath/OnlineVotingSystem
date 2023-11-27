@@ -35,7 +35,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/api/user/register", {
+            await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/user/register`, {
                 first_name: first_name,
                 last_name: last_name,
                 dob: dob,
@@ -45,7 +45,7 @@ function Register() {
                 email: email,
                 username: username,
                 password: password,
-                vote:"YCP",
+                vote:"NONE",
             })
         } catch (error) {
             console.log("Error in Sending Data", error)

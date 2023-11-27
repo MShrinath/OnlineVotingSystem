@@ -19,7 +19,7 @@ function Admin() {
             if (decodedToken && decodedToken._id) {
                 const userId = decodedToken._id;
 
-                axios.get(`http://localhost:5000/api/user/${userId}`)
+                axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user/${userId}`)
                     .then(response => {
                         const data = response.data;
                         setIsAdmin(data.admin);
@@ -32,7 +32,7 @@ function Admin() {
 
         const fetchAllData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/user/');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user/`);
                 setAllDetails(response.data)
             } catch (error) {
                 console.log(error.message);
@@ -41,7 +41,7 @@ function Admin() {
 
         const fetchVoteStatistics = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/user/voteStatistics');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user/voteStatistics`);
                 setVoteStatistics(response.data);
             } catch (error) {
                 console.log(error.message);

@@ -44,7 +44,7 @@ function Vote() {
         if(document.getElementById("Voter2").checked === true) {setVote("TDP")};
         if(document.getElementById("Voter3").checked === true) {setVote("YCP")};
         try {
-            await axios.put(`http://localhost:5000/api/user/${userData._id}`,
+            await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/user/${userData._id}`,
                 {
                     vote:vote
                 });
@@ -68,7 +68,7 @@ function Vote() {
             if (decodedToken && decodedToken._id) {
                 const userId = decodedToken._id;
 
-                axios.get(`http://localhost:5000/api/user/${userId}`)
+                axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user/${userId}`)
                     .then(response => {
                         const data = response.data;
                         setUserData(data);
