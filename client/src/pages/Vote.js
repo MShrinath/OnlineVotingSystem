@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode';
 import cookie from 'cookie';
 import axios from "axios";
 
-import VoterList from "./VoterList";
+import ContenderList from "./ContenderList";
 import P1 from "../images/Party1.png";
 import P2 from "../images/Party2.png";
 import P3 from "../images/Party3.png";
@@ -14,7 +14,7 @@ function Vote() {
     const [authenticated, setAuthenticated] = useState(false);
     const [vote,setVote] = useState("");
 
-    const votersData = [
+    const contenderData = [
         {
             PartySymbol: NV,
             Contender: "NOTA",
@@ -39,10 +39,10 @@ function Vote() {
 
     async function onSubmitVote(e) {
         e.preventDefault();
-        if(document.getElementById("Voter0").checked === true) {setVote("NOTA")};
-        if(document.getElementById("Voter1").checked === true) {setVote("RED")};
-        if(document.getElementById("Voter2").checked === true) {setVote("YELLOW")};
-        if(document.getElementById("Voter3").checked === true) {setVote("GREEN")};
+        if(document.getElementById("Contender0").checked === true) {setVote("NOTA")};
+        if(document.getElementById("Contender1").checked === true) {setVote("RED")};
+        if(document.getElementById("Contender2").checked === true) {setVote("YELLOW")};
+        if(document.getElementById("Contender3").checked === true) {setVote("GREEN")};
         try {
             await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/user/${userData._id}`,
                 {
@@ -52,10 +52,10 @@ function Vote() {
         catch (err) {
             console.error("Error updating item;", err)
         }
-        document.getElementById("Voter0").checked = false
-        document.getElementById("Voter1").checked = false
-        document.getElementById("Voter2").checked = false
-        document.getElementById("Voter3").checked = false
+        document.getElementById("Contender0").checked = false
+        document.getElementById("Contender1").checked = false
+        document.getElementById("Contender2").checked = false
+        document.getElementById("Contender3").checked = false
         alert("Voted Thank you")
     }
 
@@ -88,7 +88,7 @@ function Vote() {
                     <div>
                         <h1>Welcome to vote {userData.first_name}</h1>
                         <form onSubmit={onSubmitVote}>
-                            <VoterList voters={votersData} />
+                            <ContenderList contenders={contenderData} />
                             <input type="submit" />
                         </form>
                     </div>
