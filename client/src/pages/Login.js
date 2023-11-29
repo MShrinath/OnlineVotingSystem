@@ -79,7 +79,7 @@ function Login() {
                     </form>
                 </div>
             ) : (
-                <center className='loggedin'>
+                <center className='loggedin-container'>
                     <h1>You are already logged in</h1>
                     <button onClick={() => {
                         deleteCookie("sessionToken");
