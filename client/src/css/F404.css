@@ -1,0 +1,14 @@
+.error-container {
+    max-width: 300px;
+    margin: auto;
+    padding: 30px;
+    border: 2px solid #ccc;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(100, 98, 88, 0.2);
+    background-color: #e25d10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+}

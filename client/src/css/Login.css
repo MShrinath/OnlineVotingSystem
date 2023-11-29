@@ -9,15 +9,6 @@
     background-color: #e25d10;
 }
 
-body {
-    margin: auto;
-    padding: 30px;
-    background-image: url('https://img.freepik.com/free-vector/digital-technology-background-with-blue-orange-light-effect_1017-27423.jpg?size=626&ext=jpg&ga=GA1.1.2146182453.1699139549&semt=ais');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
 label {
     display: block;
     margin-bottom: 8px;
