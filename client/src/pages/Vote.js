@@ -83,10 +83,9 @@ function Vote() {
 
     return (
         <div>
-            <center>
                 {authenticated ? (
                     <div className='voting-container'>
-                        <h1>Welcome to vote {userData.first_name}</h1>
+                        <h2>Voter : {userData.first_name}</h2>
                         <form onSubmit={onSubmitVote}>
                             <ContenderList contenders={contenderData} />
                             <br />
@@ -98,7 +97,6 @@ function Vote() {
                         <h1>Please login</h1>
                     </center>
                 )}
-            </center>
         </div>
     );
 }

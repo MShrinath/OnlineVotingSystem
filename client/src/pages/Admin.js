@@ -67,8 +67,8 @@ function Admin() {
     return (
         <div>
             {isAdmin ? (
-                <><div>
-                    <center><h1>Vote Statistics</h1></center>
+                <div className='admin-container'>
+                    <center><h2>Vote Statistics</h2></center>
                     <table>
                         <thead>
                             <tr>
@@ -85,20 +85,16 @@ function Admin() {
                             ))}
                         </tbody>
                     </table>
-                </div>
                     <br />
-                    <center>
-                        <div style={{ backgroundColor: 'lightblue', padding: '10px' }}>
+                    <center style={{ backgroundColor: 'lightblue', padding: '10px' }}>
                             <thread>
                                 <tr>
                                     <th>Winner</th>
                                     <th>{secondHighestVote}</th>
                                 </tr>
                             </thread>
-                        </div>
                     </center>
-                    <br />
-                    <div className="container">
+                    <br/>
                         <table>
                             <thead>
                                 <tr>
@@ -129,7 +125,7 @@ function Admin() {
                                 ))}
                             </tbody>
                         </table>
-                    </div></>
+                    </div>
             ) : (
                 <center className="notadmin-container">
                     <h1>Admin Access Required</h1>
