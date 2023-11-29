@@ -1,8 +1,26 @@
-.e_contender{
-    display:grid;
+.contender-container {
+    display: grid;
     grid-template-columns: 0.5fr 0.3fr 1fr 60px;
     border: 1px solid black;
     border-radius: 5px;
-    background-color : #e0f7fa;
+    background-color: #e0f7fa;
     justify-content: center;
+}
+
+.voting-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+    background-color: #45a049;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.voting-container [type="submit"]:hover {
+    background-color: #5bb15f;
 }

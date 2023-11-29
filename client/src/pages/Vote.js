@@ -85,10 +85,11 @@ function Vote() {
         <div>
             <center>
                 {authenticated ? (
-                    <div>
+                    <div className='voting-container'>
                         <h1>Welcome to vote {userData.first_name}</h1>
                         <form onSubmit={onSubmitVote}>
                             <ContenderList contenders={contenderData} />
+                            <br />
                             <input type="submit" />
                         </form>
                     </div>

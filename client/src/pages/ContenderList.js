@@ -4,7 +4,7 @@ import "../css/Vote.css";
 
 const ContenderList = ({ contenders }) => {
     return (
-        <div className="e_contender">
+        <div className="contender-container">
             {contenders.map((contender, index) => (
                 <>
                     <img src={contender.PartySymbol} alt={contender.PartyName} />

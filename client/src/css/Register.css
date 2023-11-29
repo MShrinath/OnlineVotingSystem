@@ -8,12 +8,37 @@
     background-color: #3171a8;
 }
 
-label {
+.register-container label {
     display: block;
     margin-bottom: 8px;
 }
 
-input {
+.register-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.register-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+    background-color: #45a049;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register-container input[type="submit"]:hover {
+    background-color: #5bb15f;
+}
+
+.register-container select {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;
