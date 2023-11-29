@@ -94,7 +94,9 @@ function Vote() {
                         </form>
                     </div>
                 ) : (
-                    <h1>Please login</h1>
+                    <center className="notloggedin-container">
+                        <h1>Please login</h1>
+                    </center>
                 )}
             </center>
         </div>

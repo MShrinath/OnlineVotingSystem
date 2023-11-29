@@ -88,7 +88,7 @@ function Admin() {
                 </div>
                     <br />
                     <center>
-                    <div style={{ backgroundColor: 'lightblue', padding: '10px' }}>
+                        <div style={{ backgroundColor: 'lightblue', padding: '10px' }}>
                             <thread>
                                 <tr>
                                     <th>Winner</th>
@@ -131,7 +131,9 @@ function Admin() {
                         </table>
                     </div></>
             ) : (
-                <center><h1>Admin Access Required</h1></center>
+                <center className="notadmin-container">
+                    <h1>Admin Access Required</h1>
+                </center>
             )}
         </div>
     );

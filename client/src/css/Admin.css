@@ -22,3 +22,41 @@ thead {
 th {
     font-weight: bold;
 }
+
+.notadmin-container h1 {
+    color: #000;
+    font-weight: bold;
+    font-size: 2rem;
+    animation: blinkingText 2s infinite;
+}
+
+@keyframes blinkingText{
+    0%		{ color: #3171a8;}
+    25%		{ color: #e25d10;}
+    50%		{ color: #3171a8;}
+    75%		{ color: #e25d10;}
+    100%	{ color: #3171a8;}
+}
+
+.notadmin-container{
+    max-width: 300px;
+    margin: auto;
+    padding: 30px;
+    border: 2px solid #ccc;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(100, 98, 88, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    animation: blinkingBackground 2s infinite;
+}
+
+@keyframes blinkingBackground{
+    0%		{ background-color: #e25d10;}
+    25%		{ background-color: #3171a8;}
+    50%		{ background-color: #e25d10;}
+    75%		{ background-color: #3171a8;}
+    100%	{ background-color: #e25d10;}
+}
