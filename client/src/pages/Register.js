@@ -82,7 +82,7 @@ function Register() {
                 vote: "NONE",
             });
             alert("Voter registered successfully!");
-            navigate('/vote');
+            navigate('/login');
         } catch (error) {
             console.log("Error in Sending Data", error);
             alert("Registration failed. Please try again.");

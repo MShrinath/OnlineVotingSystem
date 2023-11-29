@@ -5,7 +5,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #3171a8; 
+    background-color: #3171a8;
 }
 
 label {
@@ -19,25 +19,12 @@ input {
     margin-bottom: 16px;
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     padding: 0;
-    background-image: url('https://img.freepik.com/free-vector/digital-technology-background-with-blue-orange-light-effect_1017-27423.jpg?size=626&ext=jpg&ga=GA1.1.2146182453.1699139549&semt=ais'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
-    background-size: cover; /* This property sets the background image to cover the entire container */
-    background-position: center; /* This property centers the background image */
-    background-attachment: fixed; /* This property makes the background image fixed while scrolling */
-  }
-  
-
-button {
-    background-color: #af534c;
-    color: rgb(185, 73, 73);
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
+    background-image: url('https://img.freepik.com/free-vector/digital-technology-background-with-blue-orange-light-effect_1017-27423.jpg?size=626&ext=jpg&ga=GA1.1.2146182453.1699139549&semt=ais');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
