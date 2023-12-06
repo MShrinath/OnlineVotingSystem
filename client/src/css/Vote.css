@@ -1,11 +1,22 @@
 .contender-container {
-    display: grid;
-    grid-template-columns: 0.5fr 0.3fr 1fr 60px;
     border: 1px solid black;
     border-radius: 5px;
     background-color: #e0f7fa;
     justify-content: center;
 }
+
+.contender-container > div {
+    display: grid;
+    grid-template-columns: 0.5fr 0.3fr 1fr 60px;
+    gap: 10px; /* Adjust the gap between items as needed */
+    text-align: center; /* Center the content within each grid item */
+    padding: 10px; /* Add padding to the grid items as needed */
+}
+
+.contender-container img {
+    max-width: 100%; /* Ensure the images don't exceed the container width */
+}
+
 
 .voting-container h2{
     text-align: center;

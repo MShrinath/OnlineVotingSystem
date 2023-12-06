@@ -111,7 +111,7 @@ function Admin() {
                             </thead>
                             <tbody>
                                 {allDetails.map((all) => (
-                                    <><tr key={all._id}>
+                                    <tr key={all._id}>
                                         <td>{all.first_name}</td>
                                         <td>{all.last_name}</td>
                                         <td>{all.username}</td>
@@ -121,7 +121,7 @@ function Admin() {
                                         <td>{all.voter_id}</td>
                                         <td>{all.gender}</td>
                                         <td>{all.vote}</td>
-                                    </tr></>
+                                    </tr>
                                 ))}
                             </tbody>
                         </table>
