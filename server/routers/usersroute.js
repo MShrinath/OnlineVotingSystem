@@ -47,9 +47,9 @@ router.post('/login', async (req, res) => {
         });
 
 
-    //     res.json({ status: 'ok', user: true });
-    // } else {
-    //     res.json({ status: 'error', user: false });
+        res.json({ status: 'ok', user: true });
+    } else {
+        res.json({ status: 'error', user: false });
     }
 });
 
