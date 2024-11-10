@@ -9,8 +9,9 @@ const app = express()
 app.use(cookieParser());
 app.use(express.json())
 //only for development
+const furl = process.env.REACT_APP_FRONTEND_URL 
 app.use(cors({
-    origin: 'http://localhost:3000',  // <-- location of the react app were connecting to
+    origin: furl,  // <-- location of the react app were connecting to
     credentials: true,
 }));
 // app.use(cors());
