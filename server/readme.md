@@ -9,6 +9,7 @@ Create an `.env` file and add the following key-value pairs:
 ``` sh
 MONGODB_URL = # YOUR_MONGODBURL
 PORT = # YOUR_PORT
+REACT_APP_FRONTEND_URL = #YOUR_FRONTENDURL
 ```
 ### Get development environment running
 
