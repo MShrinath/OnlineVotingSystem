@@ -37,7 +37,15 @@ router.post('/login', async (req, res) => {
             { _id: user._id },
             'secret_key'
         )
-        res.cookie('sessionToken', token, { expires: new Date(Date.now() + 900000) });
+        // THIS IS FOR LOCALHOST DEV
+        // res.cookie('sessionToken', token, { expires: new Date(Date.now() + 900000) });     // COMMENTED THIS CUZ DEPLOYMENT :)
+
+        //THIS IS FOR DEPLOYMENT
+        res.cookie('sessionToken', token, { 
+            expires: new Date(Date.now() + 900000),  // 15 minutes expiration
+            httpOnly: true, secure: true, sameSite: 'None',path: '/',
+        });
+
 
         res.json({ status: 'ok', user: true });
     } else {
