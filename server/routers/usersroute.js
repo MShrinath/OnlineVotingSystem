@@ -43,7 +43,7 @@ router.post('/login', async (req, res) => {
         //THIS IS FOR DEPLOYMENT
         res.cookie('sessionToken', token, { 
             expires: new Date(Date.now() + 900000),  // 15 minutes expiration
-            httpOnly: true, secure: true, sameSite: 'None',
+            httpOnly: true, secure: true, sameSite: 'None', domain: '.netlify.app',
             path: '/',
         });
 
