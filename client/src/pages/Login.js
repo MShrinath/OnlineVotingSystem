@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
-import cookie from 'cookie';
 import axios from "axios";
 import "../css/Login.css"
 
@@ -25,7 +24,9 @@ function Login() {
         });
         const data = response.data
 
-        if (data.user) {
+        if (data.status === 'ok') {
+            const sessionToken = data.sessionToken;
+            localStorage.setItem('sessionToken', sessionToken);
             alert("logged in");
             navigate('/vote');
         } else {
@@ -33,13 +34,12 @@ function Login() {
         }
     }
 
-    const deleteCookie = (cookieName) => {
-        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    const deleteLocalStorageItem = (key) => {
+        localStorage.removeItem(key);
     };
 
     useEffect(() => {
-        const cookies = cookie.parse(document.cookie);
-        const token = cookies.sessionToken;
+        const token = localStorage.getItem('sessionToken');
 
         if (token) {
             const decodedToken = jwtDecode(token);
@@ -82,7 +82,7 @@ function Login() {
                 <center className='loggedin-container'>
                     <h1>You are already logged in</h1>
                     <button onClick={() => {
-                        deleteCookie("sessionToken");
+                        deleteLocalStorageItem("sessionToken");
                         setAuthenticated(false);
                     }}>Logout</button>
                 </center>

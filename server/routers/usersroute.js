@@ -33,22 +33,12 @@ router.post('/login', async (req, res) => {
         password: req.body.password
     });
     if (user) {
-        const token = jwt.sign(
+        const sessionToken = jwt.sign(
             { _id: user._id },
             'secret_key'
         )
-        // THIS IS FOR LOCALHOST DEV
-        // res.cookie('sessionToken', token, { expires: new Date(Date.now() + 900000) });     // COMMENTED THIS CUZ DEPLOYMENT :)
 
-        //THIS IS FOR DEPLOYMENT
-        res.cookie('sessionToken', token, { 
-            expires: new Date(Date.now() + 900000),  // 15 minutes expiration
-            httpOnly: true, secure: true, sameSite: 'None', domain: '.netlify.app',
-            path: '/',
-        });
-
-
-        res.json({ status: 'ok', user: true });
+        res.json({ status: 'ok', user: true , sessionToken});
     } else {
         res.json({ status: 'error', user: false });
     }
@@ -85,11 +75,20 @@ router.get('/voteStatistics', async (req, res) => {
 });
 
 router.get('/isloggedin', (req, res) => {
-    const sessionToken = req.cookies.sessionToken;
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
+        return res.json({ isLoggedIn: false });
+    }
 
-    if (sessionToken) {
-        res.json({ isLoggedIn: true });
-    } else {
+    const token = authHeader.split(' ')[1]; // Expecting "Bearer <token>"
+    if (!token) {
+        return res.json({ isLoggedIn: false });
+    }
+
+    try {
+        const decoded = jwt.verify(token, 'secret_key');
+        res.json({ isLoggedIn: true, userId: decoded._id });
+    } catch (err) {
         res.json({ isLoggedIn: false });
     }
 });

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import jwtDecode from 'jwt-decode';
-import cookie from 'cookie';
 import axios from "axios";
 
 import ContenderList from "./ContenderList";
@@ -60,8 +59,7 @@ function Vote() {
     }
 
     useEffect(() => {
-        const cookies = cookie.parse(document.cookie);
-        const token = cookies.sessionToken;
+        const token = localStorage.getItem('sessionToken');
 
         if (token) {
             const decodedToken = jwtDecode(token);
